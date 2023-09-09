@@ -1,0 +1,37 @@
+use database_name - to create a databaseand open a database
+
+show dbs to show all available data 
+
+db.createcollection(''collection_name) - to create a collection in a database
+
+db.collection_name.drop() to delete a collection
+
+db.dropDatabase()- to delete a database
+
+files adding command
+
+db.collection_name.insertOne({
+
+   key1:'value1',
+   key2:'value2'-----
+    
+})
+
+db.collection_name.insertOne({
+
+    name:'yogender',
+    age:'20',
+    rollno:'234534',
+    city:'jaipur'
+
+},
+{
+
+    name:'yog',
+    age:'21',
+    rollno:'234534',
+    city:'jaipur'
+
+}
+
+)

@@ -1,0 +1,291 @@
+
+
+ C:\Users\YOGENDER SINGH>mongosh "mongodb+srv://cluster0.cmpmcsv.mongodb.net/" --apiVersion 1 --username yogender
+Enter password: ****
+Current Mongosh Log ID: 64fc3f1b7dbace5ffad4af22
+Connecting to:          mongodb+srv://<credentials>@cluster0.cmpmcsv.mongodb.net/?appName=mongosh+1.10.6
+Using MongoDB:          6.0.9 (API Version 1)
+Using Mongosh:          1.10.6
+mongosh 2.0.0 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+Atlas atlas-aset1m-shard-0 [primary] test> show dbs
+Regex       8.00 KiB
+product    44.00 KiB
+products    8.00 KiB
+regex1     80.00 KiB
+admin     332.00 KiB
+local      35.85 GiB
+Atlas atlas-aset1m-shard-0 [primary] test> use product
+switched to db product
+Atlas atlas-aset1m-shard-0 [primary] product> show collections
+electronics
+Atlas atlas-aset1m-shard-0 [primary] product> use yogender
+switched to db yogender
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.createCollection("file1")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.createCollection("file2")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.createCollection("file3")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.createCollection("file4")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.createCollection("file5")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] yogender> show collections
+file1
+file2
+file3
+file4
+file5
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.file5.drop()
+true
+Atlas atlas-aset1m-shard-0 [primary] yogender> show collections
+file1
+file2
+file3
+file4
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.file1.insertone({name:"yogender"})
+TypeError: db.file1.insertone is not a function
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.file1.insertOne({name:"yogender"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64fc453b7dbace5ffad4af23")
+}
+Atlas atlas-aset1m-shard-0 [primary] yogender> db.file1.find()
+[ { _id: ObjectId("64fc453b7dbace5ffad4af23"), name: 'yogender' } ]
+Atlas atlas-aset1m-shard-0 [primary] yogender> use rdata
+switched to db rdata
+Atlas atlas-aset1m-shard-0 [primary] rdata> db.createCollection("rawdata")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] rdata> drop.rdata()
+ReferenceError: drop is not defined
+Atlas atlas-aset1m-shard-0 [primary] rdata> db.drop.rdata()
+TypeError: db.drop.rdata is not a function
+Atlas atlas-aset1m-shard-0 [primary] rdata> db.dropdatabase()
+TypeError: db.dropdatabase is not a function
+Atlas atlas-aset1m-shard-0 [primary] rdata> db.file1.deleteOne({name:"yogender"})
+{ acknowledged: true, deletedCount: 0 }
+Atlas atlas-aset1m-shard-0 [primary] rdata> db.file1.find()
+
+Atlas atlas-aset1m-shard-0 [primary] rdata> use database1
+switched to db database1
+Atlas atlas-aset1m-shard-0 [primary] database1> db.createCollection("info1")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] database1> db.createCollection("info2")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] database1> db.createCollection("info3")
+{ ok: 1 }
+Atlas atlas-aset1m-shard-0 [primary] database1> show dbs
+Regex        8.00 KiB
+database1   24.00 KiB
+product     44.00 KiB
+products     8.00 KiB
+rdata        8.00 KiB
+regex1      80.00 KiB
+yogender    64.00 KiB
+admin      332.00 KiB
+local       35.85 GiB
+Atlas atlas-aset1m-shard-0 [primary] database1> show collections
+info1
+info2
+info3
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.insertOne({name:"yogender",age:"21",number:"21324235"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64fc49c97dbace5ffad4af24")
+}
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.insertOne({name:"shubham",age:"21",number:"21324235"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64fc49e17dbace5ffad4af25")
+}
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.insertOne({name:"yogender",age:"21",number:"21324235"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("64fc49f27dbace5ffad4af26")
+}
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.find()
+[
+  {
+    _id: ObjectId("64fc49c97dbace5ffad4af24"),
+    name: 'yogender',
+    age: '21',
+    number: '21324235'
+  },
+  {
+    _id: ObjectId("64fc49e17dbace5ffad4af25"),
+    name: 'shubham',
+    age: '21',
+    number: '21324235'
+  },
+  {
+    _id: ObjectId("64fc49f27dbace5ffad4af26"),
+    name: 'yogender',
+    age: '21',
+    number: '21324235'
+  }
+]
+Atlas atlas-aset1m-shard-0 [primary] database1> #h1{
+Uncaught:
+SyntaxError: Private names are only allowed in property accesses (`obj.#h1`) or in `in` expressions (`#h1 in obj`). (1:0)
+
+> 1 | #h1{
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database1>   color: aliceblue;
+ReferenceError: aliceblue is not defined
+Atlas atlas-aset1m-shard-0 [primary] database1> } db.info2.insertOne({name:"yogender",age:"21",no:353846937})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.info2.insertOne({name:"yogender",age:"21",no:353846937})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database1> } db.info2.insertOne({name:"yogender",age:"21",no:"353846937"})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.info2.insertOne({name:"yogender",age:"21",no:"353846937"})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database1> } db.info2.insertOne({name:'yogender',age:'21',no:'353846937'})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.info2.insertOne({name:'yogender',age:'21',no:'353846937'})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database1> } db.info2.insertMany({name:'yogender',age:'21',no:'353846937'})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.info2.insertMany({name:'yogender',age:'21',no:'353846937'})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.deleteMany({age:"21"})
+{ acknowledged: true, deletedCount: 3 }
+Atlas atlas-aset1m-shard-0 [primary] database1> db.info1.find()
+
+Atlas atlas-aset1m-shard-0 [primary] database1> use database2
+switched to db database2
+Atlas atlas-aset1m-shard-0 [primary] database2> db.createCollection("text1")
+
+PoolClearedOnNetworkError: Connection to ac-wvvm2y5-shard-00-01.cmpmcsv.mongodb.net:27017 interrupted due to server monitor timeout
+Atlas atlas-aset1m-shard-0 [secondary] database2>
+
+Atlas atlas-aset1m-shard-0 [secondary] database2> db.createCollection("text1")
+MongoServerError: Collection database2.text1 already exists.
+Atlas atlas-aset1m-shard-0 [primary] database2> } db.text1.insertMany({name:'yogender',age:'20',no:'353846937'})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.text1.insertMany({name:'yogender',age:'20',no:'353846937'})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database2> } db.text1.insertMany({name:'yogender}',{age:'20'},{no:'353846937'})
+Uncaught:
+SyntaxError: Unexpected token (1:0)
+
+> 1 | } db.text1.insertMany({name:'yogender}',{age:'20'},{no:'353846937'})
+    | ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.insertMany({name:'yogender'},{age:'21'},{city:'jaipur'})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.insertMany([{name:'yogender'},{age:'21'},{city:'jaipur'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64fc4e127dbace5ffad4af27"),
+    '1': ObjectId("64fc4e127dbace5ffad4af28"),
+    '2': ObjectId("64fc4e127dbace5ffad4af29")
+  }
+}
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.insertMany([{name:'shubham'},{age:'18'},{city:'bhilwara'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64fc4e377dbace5ffad4af2a"),
+    '1': ObjectId("64fc4e377dbace5ffad4af2b"),
+    '2': ObjectId("64fc4e377dbace5ffad4af2c")
+  }
+}
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.insertMany([{name:'rajesh'},{age:'19'},{city:'sikar'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64fc4e637dbace5ffad4af2d"),
+    '1': ObjectId("64fc4e637dbace5ffad4af2e"),
+    '2': ObjectId("64fc4e637dbace5ffad4af2f")
+  }
+}
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.find()
+[
+  { _id: ObjectId("64fc4e127dbace5ffad4af27"), name: 'yogender' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af28"), age: '21' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af29"), city: 'jaipur' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2a"), name: 'shubham' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2b"), age: '18' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2c"), city: 'bhilwara' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2d"), name: 'rajesh' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2e"), age: '19' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2f"), city: 'sikar' }
+]
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.update({name:"shubham"},{$unset{city:1}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:40)
+
+> 1 | db.text1.update({name:"shubham"},{$unset{city:1}})
+    |                                         ^
+  2 |
+
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.update({name:'shubham'},{$unset:{city:1}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.find()
+[
+  { _id: ObjectId("64fc4e127dbace5ffad4af27"), name: 'yogender' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af28"), age: '21' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af29"), city: 'jaipur' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2a"), name: 'shubham' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2b"), age: '18' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2c"), city: 'bhilwara' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2d"), name: 'rajesh' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2e"), age: '19' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2f"), city: 'sikar' }
+]
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.update({name:'yogender'},{$unset:{city:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-aset1m-shard-0 [primary] database2> db.text1.find()
+[
+  { _id: ObjectId("64fc4e127dbace5ffad4af27"), name: 'yogender' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af28"), age: '21' },
+  { _id: ObjectId("64fc4e127dbace5ffad4af29"), city: 'jaipur' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2a"), name: 'shubham' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2b"), age: '18' },
+  { _id: ObjectId("64fc4e377dbace5ffad4af2c"), city: 'bhilwara' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2d"), name: 'rajesh' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2e"), age: '19' },
+  { _id: ObjectId("64fc4e637dbace5ffad4af2f"), city: 'sikar' }
+]
+Atlas atlas-aset1m-shard-0 [primary] database2>
